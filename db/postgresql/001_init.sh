@@ -21,7 +21,7 @@ if [ ! "$(ls -A $BACKUPS_DIR)" ]; then
     exit 1
 fi
 # Combinar as partes do backup em um único arquivo
-cat $BACKUPS_DIR/backup_part_aa $BACKUPS_DIR/backup_part_ab > $RESTORE_DIR/002_backup.sql
+cat $BACKUPS_DIR/part_* > $RESTORE_DIR/002_backup.sql
 
 # Executar o script de restauração no databse address_db
 psql -U "$DB_USER" -d "$DB_NAME" -f $RESTORE_DIR/002_backup.sql
