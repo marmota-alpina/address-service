@@ -1,5 +1,9 @@
 /.idea
 /__pycache__
+app/__pycache__/
+app/db/__pycache__/
+app/db/models/__pycache__/
+app/schemas/__pycache__/
 /.pytest_cache
 /.vscode
 /.run

@@ -13,7 +13,7 @@ requests = "^2.32.3"
 sqlalchemy = "^2.0.30"
 psycopg2-binary = "^2.9.3"
 haversine = "^2.8.1"
-
+flask-cors = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core"]

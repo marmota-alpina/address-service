@@ -1,6 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException
-from sqlalchemy.orm import Session, joinedload
-
+from sqlalchemy.orm import Session
+from fastapi.middleware.cors import CORSMiddleware
 from app.db.models.address import Address
 from app.db.session import SessionLocal
 from app.schemas.address_schema import AddressRead, DistanceRead
@@ -12,6 +12,14 @@ app = FastAPI(
     docs_url="/",
     redoc_url="/redoc",
     openapi_url="/openapi.json",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Authorization", "Content-Type"],
 )
 
 
