@@ -8,9 +8,9 @@ API to get address by postal code and calculate distance between two postal code
 ```bash
   docker-compose up --build
 ```
-- The API will be available at http://localhost:8000
-- The documentation will be available at http://localhost:8000 or http://localhost:8000/redoc
-- The database will be available at http://localhost:5432
+- The API will be available at http://localhost:5000
+- The documentation will be available at http://localhost:5000/address
+- The database will be available at http://localhost:5433
 ## Configuration
 You can configure the API by setting the following environment variables on the `.env` file:
 - `DATABASE_URL`: Database URL
@@ -19,13 +19,13 @@ You can configure the API by setting the following environment variables on the 
 
 ### Healthcheck
 
-- **GET** `/healthcheck`
+- **GET** `/address/healthcheck`
   - **Summary:** Healthcheck
   - **Description:** Healthcheck endpoint
 
 ### Get Distance Between Postal Codes
 
-- **GET** `/geolocation/distance/from/{from_postal_code}/to/{to_postal_code}`
+- **GET** `/address/geolocation/distance/from/{from_postal_code}/to/{to_postal_code}`
   - **Summary:** Get Distance Between Postal Codes
   - **Description:** Get the distance between two postal codes
   - **Parameters:**
@@ -34,7 +34,7 @@ You can configure the API by setting the following environment variables on the 
 
 ### Get Address By Postal Code
 
-- **GET** `/address/{postal_code}`
+- **GET** `/address/postal/{postal_code}`
   - **Summary:** Get Address By Postal Code
   - **Description:** Get address by postal code
   - **Parameters:**
