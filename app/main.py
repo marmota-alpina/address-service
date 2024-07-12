@@ -10,7 +10,9 @@ app = FastAPI(
     version="0.1.0",
     title="Address API",
     docs_url="/address",
-    redoc_url=None)
+    openapi_url="/address/openapi.json",
+    redoc_url=None,
+)
 
 app.add_middleware(
     CORSMiddleware,
