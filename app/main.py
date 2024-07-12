@@ -9,10 +9,8 @@ app = FastAPI(
     description="API to get address by postal code and calculate distance between two postal codes",
     version="0.1.0",
     title="Address API",
-    docs_url="/",
-    redoc_url="/redoc",
-    openapi_url="/openapi.json",
-)
+    docs_url="/address",
+    redoc_url=None)
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,13 +29,13 @@ def get_db():
         db.close()
 
 
-@app.get("/healthcheck", tags=["Healthcheck"], description="Healthcheck endpoint", name="healthcheck")
+@app.get("/address/healthcheck", tags=["Healthcheck"], description="Healthcheck endpoint", name="healthcheck")
 def healthcheck():
     return {"status": "ok"}
 
 
 @app.get(
-    "/geolocation/distance/from/{from_postal_code}/to/{to_postal_code}",
+    "/address/geolocation/distance/from/{from_postal_code}/to/{to_postal_code}",
     response_model=DistanceRead,
     tags=["Geolocation"],
     description="Get the distance between two postal codes",
@@ -61,7 +59,7 @@ def get_distance_between_postal_codes(from_postal_code: str, to_postal_code: str
 
 
 @app.get(
-    "/address/{postal_code}",
+    "/address/postal/{postal_code}",
     response_model=AddressRead,
     tags=["Address"],
     description="Get address by postal code"
